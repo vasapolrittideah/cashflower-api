@@ -1,4 +1,4 @@
-module github.com/vasapolrittideah/cashflower
+module github.com/vasapolrittideah/cashflower-api
 
 go 1.24.6
 
