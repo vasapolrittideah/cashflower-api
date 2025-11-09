@@ -3,6 +3,7 @@ module github.com/vasapolrittideah/money-tracker-api
 go 1.24.6
 
 require (
+	github.com/go-playground/universal-translator v0.18.1
 	github.com/hashicorp/consul/api v1.20.0
 	github.com/rs/zerolog v1.34.0
 	google.golang.org/grpc v1.76.0
@@ -12,6 +13,7 @@ require (
 require (
 	github.com/armon/go-metrics v0.4.1 // indirect
 	github.com/fatih/color v1.15.0 // indirect
+	github.com/gabriel-vasile/mimetype v1.4.10 // indirect
 	github.com/go-playground/form v3.1.4+incompatible // indirect
 	github.com/golang/snappy v1.0.0 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
@@ -22,6 +24,7 @@ require (
 	github.com/hashicorp/serf v0.10.1 // indirect
 	github.com/jpillora/backoff v1.0.0 // indirect
 	github.com/klauspost/compress v1.16.7 // indirect
+	github.com/leodido/go-urn v1.4.0 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
@@ -39,6 +42,8 @@ require (
 require (
 	github.com/caarlos0/env/v11 v11.3.1
 	github.com/go-chi/chi/v5 v5.2.3
+	github.com/go-playground/locales v0.14.1
+	github.com/go-playground/validator/v10 v10.28.0
 	github.com/golang-jwt/jwt/v5 v5.3.0
 	github.com/matthewhartstonge/argon2 v1.4.1
 	github.com/mattn/go-colorable v0.1.13 // indirect
