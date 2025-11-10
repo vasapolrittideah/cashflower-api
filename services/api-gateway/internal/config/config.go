@@ -7,7 +7,8 @@ import (
 
 type APIGatewayConfig struct {
 	Environment    string `env:"ENVIRONMENT"`
-	Address        string `env:"API_GATEWAY_ADDRESS"`
+	Name           string `env:"SERVICE_NAME"`
+	Address        string `env:"SERVICE_ADDRESS"`
 	AuthServiceCfg AuthServiceConfig
 }
 

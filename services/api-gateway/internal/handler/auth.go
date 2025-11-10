@@ -14,18 +14,15 @@ import (
 )
 
 type AuthHTTPHandler struct {
-	router            *chi.Mux
 	logger            *zerolog.Logger
 	authServiceClient *authclient.AuthServiceClient
 }
 
 func NewAuthHTTPHandler(
-	router *chi.Mux,
 	logger *zerolog.Logger,
 	authServiceClient *authclient.AuthServiceClient,
 ) *AuthHTTPHandler {
 	handler := &AuthHTTPHandler{
-		router:            router,
 		logger:            logger,
 		authServiceClient: authServiceClient,
 	}
@@ -33,8 +30,8 @@ func NewAuthHTTPHandler(
 	return handler
 }
 
-func (h *AuthHTTPHandler) RegisterRoutes() {
-	h.router.Route("/auth", func(r chi.Router) {
+func (h *AuthHTTPHandler) RegisterRoutes(r chi.Router) {
+	r.Route("/auth", func(r chi.Router) {
 		r.Post("/login", h.login)
 		r.Post("/register", h.register)
 	})

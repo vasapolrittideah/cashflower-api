@@ -1,4 +1,4 @@
-package cmd
+package main
 
 import (
 	"context"
@@ -11,6 +11,9 @@ import (
 	"github.com/go-chi/chi/v5/middleware"
 
 	"github.com/vasapolrittideah/money-tracker-api/services/api-gateway/internal/config"
+	"github.com/vasapolrittideah/money-tracker-api/services/api-gateway/internal/handler"
+	authclient "github.com/vasapolrittideah/money-tracker-api/services/auth-service/pkg/client"
+	"github.com/vasapolrittideah/money-tracker-api/shared/discovery"
 	"github.com/vasapolrittideah/money-tracker-api/shared/logger"
 )
 
@@ -33,6 +36,24 @@ func main() {
 		IdleTimeout:  time.Minute,
 		Handler:      r,
 	}
+
+	consulRegistry, err := discovery.NewConsulRegistry(logger)
+	if err != nil {
+		logger.Fatal().Err(err).Msg("failed to create Consul registry")
+	}
+
+	authServiceClient, err := authclient.NewAuthServiceClient(
+		apiGatewayCfg.AuthServiceCfg.Name,
+		consulRegistry,
+	)
+	if err != nil {
+		logger.Fatal().Err(err).Msg("failed to create auth service client")
+	}
+
+	authHandler := handler.NewAuthHTTPHandler(logger, authServiceClient)
+	r.Route("/api/v1", func(r chi.Router) {
+		authHandler.RegisterRoutes(r)
+	})
 
 	serverErrors := make(chan error, 1)
 
