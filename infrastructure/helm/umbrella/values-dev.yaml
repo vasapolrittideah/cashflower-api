@@ -1,0 +1,9 @@
+api-gateway:
+  environment: "development"
+  image:
+    tag: "tilt"
+
+auth-service:
+  environment: "development"
+  image:
+    tag: "tilt"

@@ -1,0 +1,12 @@
+apiVersion: v2
+name: platform
+version: 1.0.0
+description: Umbrella chart for all microservices
+
+dependencies:
+  - name: api-gateway
+    version: 1.0.0
+    repository: "file://../services/api-gateway"
+  - name: auth-service
+    version: 1.0.0
+    repository: "file://../services/auth-service"

@@ -1,0 +1,9 @@
+dependencies:
+- name: api-gateway
+  repository: file://../services/api-gateway
+  version: 1.0.0
+- name: auth-service
+  repository: file://../services/auth-service
+  version: 1.0.0
+digest: sha256:fa2053f1a06e4d41ce5467713c9f3dadbbc67bc858f13caacd039e9712435090
+generated: "2025-11-10T10:56:06.925467+07:00"

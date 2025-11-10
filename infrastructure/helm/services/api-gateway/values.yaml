@@ -1,0 +1,11 @@
+replicaCount: 1
+
+environment: ""
+
+image:
+  repository: vasapolrittideah/money-tracker-api-api-gateway
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+service:
+  port: 9000
