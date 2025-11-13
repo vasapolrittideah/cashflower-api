@@ -89,6 +89,7 @@ for service in services:
       new_name = db_name,
       labels = "databases",
       resource_deps = ["consul"],
+      port_forwards = ["27017:27017"],
     )
 
     k8s_resource(
